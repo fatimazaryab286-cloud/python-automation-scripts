@@ -1,6 +1,5 @@
-import requests
+import requests, csv
 from bs4 import BeautifulSoup
-import csv
 
 books=requests.get('https://books.toscrape.com/')
 soup=BeautifulSoup(books.text,'html.parser')
@@ -16,10 +15,8 @@ with open('books.csv',mode='w',encoding='utf-8',newline='') as file:
     #price
      price=books.find(class_='price_color')
      priceintext=price.text
-     print(priceintext)
     #star-rating
      rating=books.find('p',class_='star-rating').get('class')[1]
-     print(rating)
      writer.writerow([title,priceintext,rating])
 
     
