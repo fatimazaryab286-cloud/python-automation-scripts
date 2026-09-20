@@ -1,42 +1,55 @@
 # Python Automation Scripts
- Collection of small Automation tools iI built to learn practiacl python -File Handling,Web Scraping,Report Generation and Scheduling.
-#  Scriptsgn### rename_files.py
-Renames every file in a given folder by prepending today's date.
+
+A collection of small automation tools built to solve real repetitive tasks — 
+scraping data, generating reports, renaming files in bulk, and a Discord bot 
+for quick reminders.
+
+ee [JOURNEY.md](./JOURNEY.md) for the day-by-day build log.
+
+## Scripts
+
+### rename_files.py
+Saves you from manually renaming dozens of files one by one — automatically 
+adds today's date to the front of every file in a folder.
 ```bash
 python rename_files.py
 ```
+![Renaming of files with today's date](screenshots/file-rename.png)
 
 ### scraper.py
-Scrapes book titles, prices, and ratings from books.toscrape.com and saves 
-them to a CSV. URL and output filename are configurable via CLI arguments.
+Pulls data (titles, prices, ratings) straight from a website into a clean 
+spreadsheet — no manual copy-pasting. Works with any URL and output filename 
+you give it.
 ```bash
 python scraper.py --url <target_url> --output <filename.csv>
 ```
-**Note:** the URL/output are flexible, but the HTML selectors are currently 
-written specifically for books.toscrape.com's page structure. To scrape a 
-different site, the `find_all()` selectors need to be updated to match that 
-site's HTML.
+**Note:** currently configured to scrape books.toscrape.com's page structure. 
+Can be adapted to other sites by updating the HTML selectors.
+![Scraper output](screenshots/scraper-output.png)
 
 ### report_generator.py
-Reads a CSV and generates a formatted Excel report with bold headers, 
-auto-sized columns, and a total row.
+Turns a messy spreadsheet into a clean, presentation-ready Excel report — 
+bold headers, properly sized columns, totals calculated automatically. 
+The kind of formatting task that normally eats up 20+ minutes by hand.
 ```bash
 python report_generator.py
 ```
+![report generation](screenshots/report-generation.png)
 
-## Scheduling
-scraper.py can be scheduled to run daily via cron or Task Scheduler, so it 
-runs automatically without manual triggering.
-Example cron line: `0 9 * * * python3 scraper.py --url ... --output ...`
- 
-### bot.py
-A Discord bot with a `!remind` command that echoes back a reminder message.
-Includes graceful error handling for missing arguments and unknown commands.
+### discord-bot/bot.py
+A Discord bot that sets reminders on command and replies with helpful 
+messages instead of crashing if used incorrectly.
 ```bash
 python bot.py
 ```
 Requires a `.env` file with `DISCORD_BOT_TOKEN=your_token_here`.
+![bot reply](screenshots/bot-reply.png)
+
+## Scheduling
+scraper.py can run automatically on a set schedule (daily, weekly, etc.) 
+via cron or Task Scheduler — no need to run it manually.
+Example: `0 9 * * * python3 scraper.py --url ... --output ...`
+![ task scheduling](screenshots/task-scheduler.png)
 
 ## Tech used
-Python, requests, BeautifulSoup, openpyxl, argparse/Task Scheduler.lSoup, openpyxl, argparse,discord.py
-
+Python, requests, BeautifulSoup, openpyxl, discord.py, argparse
