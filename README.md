@@ -20,6 +20,9 @@ python rename_files.py
 Pulls data (titles, prices, ratings) straight from a website into a clean 
 spreadsheet — no manual copy-pasting. Works with any URL and output filename 
 you give it.
+Pulls data (titles, prices, ratings) straight from a website into a clean 
+spreadsheet — no manual copy-pasting. Works with any URL and output filename 
+you give it.
 ```bash
 python scraper.py --url <target_url> --output <filename.csv>
 ```
@@ -28,6 +31,9 @@ Can be adapted to other sites by updating the HTML selectors.
 ![Scraper output](screenshots/scraper-output.png)
 
 ### report_generator.py
+Turns a messy spreadsheet into a clean, presentation-ready Excel report — 
+bold headers, properly sized columns, totals calculated automatically. 
+The kind of formatting task that normally eats up 20+ minutes by hand.
 Turns a messy spreadsheet into a clean, presentation-ready Excel report — 
 bold headers, properly sized columns, totals calculated automatically. 
 The kind of formatting task that normally eats up 20+ minutes by hand.
