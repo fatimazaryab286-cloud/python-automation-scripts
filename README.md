@@ -28,7 +28,15 @@ python report_generator.py
 scraper.py can be scheduled to run daily via cron or Task Scheduler, so it 
 runs automatically without manual triggering.
 Example cron line: `0 9 * * * python3 scraper.py --url ... --output ...`
+ 
+### bot.py
+A Discord bot with a `!remind` command that echoes back a reminder message.
+Includes graceful error handling for missing arguments and unknown commands.
+```bash
+python bot.py
+```
+Requires a `.env` file with `DISCORD_BOT_TOKEN=your_token_here`.
 
 ## Tech used
-Python, requests, BeautifulSoup, openpyxl, argparse/Task Scheduler.lSoup, openpyxl, argparse
-#
+Python, requests, BeautifulSoup, openpyxl, argparse/Task Scheduler.lSoup, openpyxl, argparse,discord.py
+
